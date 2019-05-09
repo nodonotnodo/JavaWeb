@@ -1,0 +1,92 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0"
+         metadata-complete="true">
+
+    <!--配置网站的信息
+    例如：Servlet里面的全局参数
+        servlet的配置
+        监听器的配置
+        过滤器的配置
+    -->
+
+    <!--配置一个Servlet-->
+    <!--<com.github.nodonotnodo.servlet>-->
+        <!--&lt;!&ndash;相当于在tomcat的标识符&ndash;&gt;-->
+        <!--<com.github.nodonotnodo.servlet-name></com.github.nodonotnodo.servlet-name>-->
+    <!--</com.github.nodonotnodo.servlet>-->
+    <!--<com.github.nodonotnodo.servlet>-->
+        <!--<com.github.nodonotnodo.servlet-name></com.github.nodonotnodo.servlet-name>-->
+        <!--<com.github.nodonotnodo.servlet-class></com.github.nodonotnodo.servlet-class>-->
+    <!--</com.github.nodonotnodo.servlet>-->
+
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>com.github.nodonotnodo.servlet.Servlet1</servlet-class>
+    </servlet>
+
+    <!--配置servlet的映射信息-->
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <!--当前Servlet映射路径-->
+        <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>GetData</servlet-name>
+        <servlet-class>com.github.nodonotnodo.servlet.GetData</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetData</servlet-name>
+        <url-pattern>/getdata</url-pattern>
+    </servlet-mapping>
+    
+
+    <servlet>
+        <servlet-name>Response</servlet-name>
+        <servlet-class>com.github.nodonotnodo.servlet.Response</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Response</servlet-name>
+        <url-pattern>/response</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>ScopeDemo1</servlet-name>
+        <servlet-class>com.github.nodonotnodo.servletContext_scope.ScopeDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ScopeDemo1</servlet-name>
+        <url-pattern>/scope1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ScopeDeom2</servlet-name>
+        <servlet-class>com.github.nodonotnodo.servletContext_scope.ScopeDeom2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ScopeDeom2</servlet-name>
+        <url-pattern>/scope2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Status</servlet-name>
+        <servlet-class>com.github.nodonotnodo.servlet.Status</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Status</servlet-name>
+        <url-pattern>/status</url-pattern>
+        <!--
+            模糊匹配：**注意：模糊匹配和精确匹配不能共存（精确匹配优先级大于模糊匹配）
+                1./*  *表示任意路径
+                2.*.xxx     前面必须是模糊匹配（这个优先级最低）
+
+        -->
+    </servlet-mapping>
+</web-app>

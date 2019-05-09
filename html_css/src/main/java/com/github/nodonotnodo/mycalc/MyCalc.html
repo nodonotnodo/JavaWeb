@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的计算器</title>
+    <style>
+
+        /**
+        input的样式设置
+         */
+        input {
+            align:left;
+            width: 400px;
+            height: 50px;
+            font-size: 40px;
+            border-bottom-style: wave;
+            text-align: right;
+            background: white;
+        }
+
+        /*
+        鼠标聚焦按钮时的特殊样式
+         */
+        td:hover {
+            background: dodgerblue;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body background="阿尔托莉雅.png">
+
+    <br>
+    <br>
+    <input value="" id="input1" type="text" disabled="disabled"/>
+    <br>
+    <input value="0" id="input2" type="text" disabled="disabled"/>
+    <br>
+
+    <!--计算器基本骨架-->
+    <table align="left" border="2" width="404" height="505" bgcolor="aqua">
+        <tr height="100" align="center">
+            <td class="clear" width="100">C</td>
+            <td class="del" width="100">退格</td>
+            <td class="operator" width="100">%</td>
+            <td class="operator" width="100">/</td>
+        </tr>
+        <tr height="100" align="center">
+            <td class="num">7</td>
+            <td class="num">8</td>
+            <td class="num">9</td>
+            <td class="operator">*</td>
+        </tr>
+        <tr height="100" align="center">
+            <td class="num">4</td>
+            <td class="num">5</td>
+            <td class="num">6</td>
+            <td class="operator">-</td>
+        </tr>
+        <tr height="100" align="center">
+            <td class="num">1</td>
+            <td class="num">2</td>
+            <td class="num">3</td>
+            <td class="operator">+</td>
+        </tr>
+        <tr height="100" align="center">
+            <td class="num" colspan="2">0</td>
+            <td class="num">.</td>
+            <td class="getResult">=</td>
+        </tr>
+    </table>
+
+    <script>
+
+        //显示框标签
+        var showUnder = document.getElementById("input2");
+        var showUp = document.getElementById("input1");
+        //两个变量用于计算
+        var numUnder = "0";
+        var numUP = "0";
+        //操作符
+        var oper = "";
+
+        //数字按钮标签集合
+        var nums = document.getElementsByClassName("num");
+
+        //为数字按钮创建点击事件
+        for (var i = 0; i < nums.length; i++) {
+            if (nums[i].innerText === ".") {//"."有特殊的规则
+                nums[i].onclick = function () {
+                    var nowShow = showUnder.value;
+                    if (!isHavednum(nowShow)) {
+                        showUnder.value = nowShow + ".";
+                    }
+                }
+            } else {
+                nums[i].onclick = function () {
+                    // alert("一个数字按钮被点击了");
+                    var nowShow = showUnder.value;
+                    var thisnum = this.innerText;
+                    if (nowShow === "0") {
+                        showUnder.value = thisnum;
+                    } else {
+                        showUnder.value = nowShow + thisnum;
+                    }
+                }
+            }
+        }
+
+        //检查num中是否出现小数点
+        function isHavednum(num) {
+            for (var i = 0; i < num.length; i++) {
+                if (num.charAt(i) === ".") {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //清理按钮点击事件
+        var clearbt = document.getElementsByClassName("clear");
+        clearbt[0].onclick = function () {
+            showUp.value = "";
+            showUnder.value = "0";
+            numUnder = "0";
+            numUP = "0";
+            oper = "";
+        }
+
+        //退格按钮点击事件
+        var delbt = document.getElementsByClassName("del");
+        delbt[0].onclick = function () {
+            //屏幕数据
+            var nowShow = showUnder.value;
+            if (nowShow.length > 1) {
+                showUnder.value = nowShow.substring(0, nowShow.length - 1);
+            } else {
+                showUnder.value = "0";
+            }
+        }
+
+        //操作符按钮点击事件
+        var operabts = document.getElementsByClassName("operator");
+        for(var i=0; i<operabts.length; i++){
+            operabts[i].onclick = function () {
+                var nowShowUnder = showUnder.value;
+                var nowOper = this.innerText;
+                numUP = nowShowUnder;
+                showUp.value = nowShowUnder + nowOper;
+                showUnder.value = "0";
+                oper = this.innerText;
+            }
+        }
+
+        //等于按钮点击事件
+        var getResult = document.getElementsByClassName("getResult");
+        getResult[0].onclick = function () {
+            if(oper !== ""){
+                showUp.value = showUp.value + showUnder.value;
+                numUnder = showUnder.value;
+            }
+            if(isHavednum(numUP) || isHavednum(numUnder)){
+                numUP = parseFloat(numUP);
+                numUnder = parseFloat(numUnder);
+            }else{
+                numUP = parseInt(numUP);
+                numUnder = parseInt(numUnder);
+            }
+            switch (oper){
+                case "+":{
+                    numUP = numUP + numUnder;
+                    break;
+                }
+                case "-":{
+                    numUP = numUP - numUnder;
+                    break;
+                }
+                case "*":{
+                    numUP = numUP * numUnder;
+                    break;
+                }
+                case "/":{
+                    if(numUnder !== 0){
+                        numUP = numUP / numUnder;
+                    }else{
+                        alert("除数不能为0");
+                        return;
+                    }
+                    break;
+                }
+                case "%":{
+                    if(numUnder !== 0){
+                        numUP = numUP % numUnder;
+                    }else{
+                        alert("除数不能为0");
+                        return;
+                    }
+                    break;
+                }
+                default:{
+                    break;
+                }
+            }
+            oper = "";
+            numUnder = "0";
+            showUnder.value = numUP;
+        }
+
+    </script>
+
+</body>
+
+</html>

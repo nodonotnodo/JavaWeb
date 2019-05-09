@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schools>
+    <school id="school1">
+        <name>陕西科技大学</name>
+        <schoolType>非定向普通高校</schoolType>
+        <institutes>
+            <institute>
+                <institutename>电气与信息工程学院</institutename>
+                <majors>
+                    <major>
+                        <majorname>电子科学与技术</majorname>
+                        <majorClasses>
+                            <majorClass id="class4">
+                                <className>电子154</className>
+                                <numerOfStudent>21</numerOfStudent>
+                            </majorClass>
+                            <majorClass id="class3">
+                                <className>电子153</className>
+                                <numerOfStudent>30</numerOfStudent>
+                            </majorClass>
+                            <majorClass id="class2">
+                                <className>电子152</className>
+                                <numerOfStudent>28</numerOfStudent>
+                            </majorClass>
+                            <majorClass id="class1">
+                                <className>电子151</className>
+                                <numerOfStudent>32</numerOfStudent>
+                            </majorClass>
+                        </majorClasses>
+                    </major>
+                </majors>
+            </institute>
+        </institutes>
+    </school>
+</schools>
