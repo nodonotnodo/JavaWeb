@@ -7,10 +7,34 @@
     <groupId>com.github.nodonotnodo</groupId>
     <artifactId>html_css</artifactId>
     <version>1.0.0</version>
-
+    <packaging>war</packaging>
     <description>
-        这个项目中的内容是一些HTML和CSS的练习代码。
+        这个项目中的内容是一些HTML和CSS
+        com.github.nodonotnodo.servlet
+        的练习代码。
     </description>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <!--依赖范围-->
+        </dependency>
+
+    </dependencies>
     
 </project>
