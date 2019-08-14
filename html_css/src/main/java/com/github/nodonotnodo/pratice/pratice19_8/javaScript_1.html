@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javaScript的初次尝试</title>
+
+    <script>
+
+        function mustNameSet() {
+            var nameValue = document.getElementById("name").value;
+            var nichengValue = document.getElementById("nicheng").value;
+            if(nameValue=="" && nichengValue==""){
+                alert("姓名和昵称不能同时为空");
+            }else{
+                alert("称谓设定成功");
+            }
+        }
+
+        function selectProvince(){
+
+            //城市数组--数组元素为数组
+            var citys = [
+                ["西安","汉中","宝鸡"],
+                ["太原","长治","运城"],
+                ["平凉","庆阳","金昌"]
+            ]
+
+            //得到省份元素
+            var province = document.getElementById("province");
+            //拿到省份的值，实际上就是城市数组的下标
+            var flag = province.value;
+            //得到省份的城市数组
+            var cityOption = citys[flag];
+
+            var city = document.getElementById("city");
+
+            //清空城市select中的option
+            city.options.length = 0;
+
+            //创建城市option
+            for(var i=0; i<cityOption.length; i++){
+                //城市名称
+                var cityText = cityOption[i];
+
+                //创建节点和节点内容
+                var option = document.createElement("option");
+                var text = document.createTextNode(cityText);
+
+                //将节点和内容关联起来
+                option.appendChild(text);
+
+                //将节点添加到城市的选择列表中
+                city.appendChild(option);
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <h3>设置姓名、昵称，两者必须设定一个，为空则弹出警告页面</h3>
+    <form>
+        姓名:
+        <input type="text" class="name" id="name" size="40px">
+    </form>
+    <br>
+    <form>
+        昵称
+        <input type="text" class="nicheng" id="nicheng" size="40px">
+    </form>
+
+    <!--单选按钮输入，允许用户在选项中选择一个选项-->
+    <form>
+        <div align="left">
+            请选择你的省份：
+            <input type="radio" name="shenfen" value="0">陕西省
+            <input type="radio" name="shenfen" value="1">山西省
+            <input type="radio" name="shenfen" value="2">甘肃省
+        </div>
+    </form>
+
+    <br>
+
+    <!--下拉选项，select,选项表单为option-->
+    <form>
+        <div align="left">
+            省份：
+            <select id="province" onchange="selectProvince()">
+                <option class="province" value="-1"></option>
+                <option class="province" value="0">陕西省</option>
+                <option class="province" value="1">山西省</option>
+                <option class="province" value="2">甘肃省</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            城市：
+            <select id="city"></select>
+        </div>
+    </form>
+
+    <br>
+    <div align="center">
+        <button class="button" style="color: #6a43ff" onclick="mustNameSet()">
+            确定
+        </button>
+    </div>
+
+</body>
+</html>

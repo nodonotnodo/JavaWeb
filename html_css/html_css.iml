@@ -28,17 +28,26 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="apache-tomcat-9.0" level="project" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
-        <CLASSES>
-          <root url="jar://F:/比特/39班学习/JavaWeb/dom4j的jar包/dom4-j/dom4j-1.6.1/dom4j-1.6.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
+        <CLASSES />
+        <JAVADOC>
+          <root url="file://F:/比特/39班学习/JavaWeb/dom4j的jar包/dom4-j/dom4j-1.6.1/docs/apidocs" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://F:/比特/39班学习/JavaWeb/dom4j的jar包/dom4-j/dom4j-1.6.1/docs/benchmarks/xpath" />
+          <root url="file://F:/比特/39班学习/JavaWeb/dom4j的jar包/dom4-j/dom4j-1.6.1/src/java" />
+          <root url="file://F:/比特/39班学习/JavaWeb/dom4j的jar包/dom4-j/dom4j-1.6.1/src/samples" />
+          <root url="file://F:/比特/39班学习/JavaWeb/dom4j的jar包/dom4-j/dom4j-1.6.1/src/test" />
+          <root url="file://F:/比特/39班学习/JavaWeb/dom4j的jar包/dom4-j/dom4j-1.6.1/xdocs/benchmarks/xpath" />
+        </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Maven: org.dom4j:dom4j:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
     <orderEntry type="library" name="Maven: jaxen:jaxen:1.1.6" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: ca.grimoire.jsp:jsp-filters:1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: javax.servlet:jstl:1.2" level="project" />
   </component>
 </module>

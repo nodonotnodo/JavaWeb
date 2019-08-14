@@ -16,8 +16,9 @@
 
     <dependencies>
 
+
         <dependency>
-            <groupId>org.dom4j</groupId>
+            <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
         </dependency>
@@ -34,6 +35,13 @@
             <version>3.1.0</version>
             <!--依赖范围-->
         </dependency>
+
+        <dependency>
+            <groupId>ca.grimoire.jsp</groupId>
+            <artifactId>jsp-filters</artifactId>
+            <version>1.0</version>
+        </dependency>
+
 
     </dependencies>
     
